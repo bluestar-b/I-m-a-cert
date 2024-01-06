@@ -24,8 +24,7 @@ func getCertificate(host string, port int) (*x509.Certificate, error) {
 }
 
 func convertCertificateToJSON(cert *x509.Certificate) (string, error) {
-	// Convert certificate to JSON format
-	certJSON, err := json.MarshalIndent(cert, "", "  ")
+	certJSON, err := json.Marshal(cert)
 	if err != nil {
 		return "", err
 	}
